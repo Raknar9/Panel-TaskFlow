@@ -1,59 +1,149 @@
-# Taskflow
+# 🚀 TaskFlow Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.8.
+Aplicación web moderna de gestión de tareas desarrollada con Angular y Tailwind CSS.
 
-## Development server
+TaskFlow es un dashboard interactivo tipo SaaS diseñado para gestionar tareas de forma visual, moderna y eficiente. El proyecto fue creado con una arquitectura frontend escalable utilizando Angular moderno, Signals y componentes reutilizables.
 
-To start a local development server, run:
+---
+
+# ✨ Características
+
+- ✅ CRUD completo de tareas
+- ✅ Crear, eliminar y completar tareas
+- ✅ Dashboard con estadísticas en tiempo real
+- ✅ Filtros dinámicos
+- ✅ Búsqueda de tareas
+- ✅ Persistencia con LocalStorage
+- ✅ Dark Mode
+- ✅ Arquitectura modular basada en componentes
+- ✅ Diseño responsive moderno
+- ✅ Animaciones y microinteracciones
+- ✅ Angular Signals
+- ✅ Comunicación Input/Output entre componentes
+
+---
+
+# 🛠️ Tecnologías utilizadas
+
+## Frontend
+- Angular
+- TypeScript
+- Tailwind CSS
+- Angular Signals
+- HTML5
+- CSS3
+
+## Arquitectura
+- Standalone Components
+- Component-based architecture
+- Reactive state management
+- LocalStorage persistence
+
+---
+
+# 📂 Estructura del proyecto
+
+```bash
+src/app
+ ├── core
+ ├── shared
+ ├── layouts
+ ├── models
+ ├── services
+ └── features
+      └── tasks
+           ├── components
+           │    ├── task-card
+           │    └── task-form
+           └── pages
+                └── task-list
+```
+
+---
+
+# 📸 Funcionalidades principales
+
+## 📊 Dashboard interactivo
+Visualización dinámica de:
+- Total de tareas
+- Tareas completadas
+- Pendientes
+- Prioridad alta
+
+## 📝 Gestión de tareas
+- Crear tareas dinámicamente
+- Marcar tareas completadas
+- Eliminar tareas
+- Filtrado reactivo
+- Búsqueda instantánea
+
+## 🌙 Dark Mode
+Sistema de tema oscuro persistente usando Signals y LocalStorage.
+
+---
+
+# ⚡ Instalación
+
+## Clonar repositorio
+
+```bash
+git clone https://github.com/Raknar9/Panel-TaskFlow.git
+```
+
+## Entrar al proyecto
+
+```bash
+cd taskflow
+```
+
+## Instalar dependencias
+
+```bash
+npm install
+```
+
+## Ejecutar proyecto
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Abrir en:
 
 ```bash
-ng generate component component-name
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+# 🎯 Objetivo del proyecto
 
-## Building
+Este proyecto fue desarrollado como práctica avanzada de frontend moderno con Angular, enfocado en:
 
-To build the project run:
+- Arquitectura profesional
+- Componentes reutilizables
+- Estado reactivo
+- UX/UI moderna
+- Buenas prácticas frontend
+- Desarrollo de aplicaciones tipo SaaS
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+# 📌 Futuras mejoras
 
-## Running unit tests
+- 📈 Charts y gráficas
+- 🔐 Sistema de autenticación
+- 🌐 Backend con Spring Boot
+- 🗄️ Base de datos PostgreSQL
+- 📅 Drag & Drop tipo Trello
+- 👥 Gestión de usuarios
+- ☁️ Deploy fullstack
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+# 👨‍💻 Autor
 
-## Running end-to-end tests
+Miguel Aguilera
 
-For end-to-end (e2e) testing, run:
+Frontend Developer | Angular | Java | Spring Boot
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
