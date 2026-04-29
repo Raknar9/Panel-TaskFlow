@@ -1,0 +1,132 @@
+<div class="min-h-screen bg-gray-100 dark:bg-zinc-900 p-10 transition-colors duration-300">
+
+  <div class="max-w-5xl mx-auto">
+
+    <h1 class="text-5xl font-bold mb-8 text-gray-800 dark:text-white">
+      Panel de TaskFlow
+    </h1>
+
+    <!-- STATS -->
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+
+      <div class="bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+        <p class="text-gray-500 dark:text-gray-300 text-sm">
+          Total Tareas
+        </p>
+
+        <h2 class="text-3xl font-bold mt-2 dark:text-white">
+          {{ totalTasks() }}
+        </h2>
+      </div>
+
+      <div class="bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+        <p class="text-gray-500 dark:text-gray-300 text-sm">
+          Completadas
+        </p>
+
+        <h2 class="text-3xl font-bold mt-2 text-green-600">
+          {{ completedTasks() }}
+        </h2>
+      </div>
+
+      <div class="bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+        <p class="text-gray-500 dark:text-gray-300 text-sm">
+          Pendientes
+        </p>
+
+        <h2 class="text-3xl font-bold mt-2 text-yellow-600">
+          {{ pendingTasks() }}
+        </h2>
+      </div>
+
+      <div class="bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+        <p class="text-gray-500 dark:text-gray-300 text-sm">
+          Prioridad Alta
+        </p>
+
+        <h2 class="text-3xl font-bold mt-2 text-red-600">
+          {{ highPriorityTasks() }}
+        </h2>
+      </div>
+
+    </div>
+
+    <!-- TASK PANEL -->
+
+    <div class="bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-6 transition-all duration-300">
+
+      <div class="flex justify-between items-center mb-6">
+
+        <h2 class="text-2xl font-semibold dark:text-white">
+          Mis Tareas
+        </h2>
+
+      </div>
+
+      <!-- FORM -->
+
+      <app-task-form
+        (create)="createTask($event)"
+      />
+
+      <!-- SEARCH + FILTERS -->
+
+      <div class="flex flex-col md:flex-row gap-4 mb-6">
+
+        <input
+          type="text"
+          placeholder="Buscar tarea..."
+          [value]="searchTerm()"
+          (input)="searchTerm.set($any($event.target).value)"
+          class="border dark:border-zinc-700 dark:bg-zinc-900 dark:text-white rounded-xl p-3 flex-1 outline-none focus:ring-2 focus:ring-black transition-all duration-300"
+        />
+
+        <div class="flex gap-2">
+
+          <button
+            (click)="filter.set('Todas')"
+            class="px-4 py-2 rounded-xl border dark:border-zinc-700 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-700 hover:scale-105 transition-all duration-300"
+          >
+            Todas
+          </button>
+
+          <button
+            (click)="filter.set('Pendientes')"
+            class="px-4 py-2 rounded-xl border dark:border-zinc-700 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-700 hover:scale-105 transition-all duration-300"
+          >
+            Pendientes
+          </button>
+
+          <button
+            (click)="filter.set('Completadas')"
+            class="px-4 py-2 rounded-xl border dark:border-zinc-700 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-700 hover:scale-105 transition-all duration-300"
+          >
+            Completadas
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- TASKS -->
+
+      <div class="space-y-4">
+
+        @for(task of filteredTasks(); track task.id) {
+
+          <app-task-card
+            [task]="task"
+            (delete)="deleteTask($event)"
+            (toggle)="toggleCompleted($event)"
+          />
+
+        }
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
