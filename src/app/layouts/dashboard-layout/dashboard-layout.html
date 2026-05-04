@@ -1,43 +1,36 @@
-<div class="min-h-screen bg-gray-100 dark:bg-zinc-900 flex transition-colors duration-300">
+<div class="min-h-screen bg-gray-100 dark:bg-zinc-900 flex flex-col md:flex-row transition-colors duration-300">
 
   <!-- SIDEBAR -->
+  <aside class="w-full md:w-72 bg-black text-white p-4 md:p-6 flex md:flex-col justify-between md:justify-start">
 
-  <aside class="w-72 bg-black text-white p-6 flex flex-col">
-
-    <h1 class="text-3xl font-bold mb-10">
+    <h1 class="text-xl md:text-3xl font-bold">
       TaskFlow
     </h1>
 
-   
     <button
-  (click)="themeService.toggleTheme()"
-  class="mt-6 text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition"
->
-  {{ themeService.darkMode() ? '☀️ Modo Claro' : '🌙 Modo Oscuro' }}
-</button>
+      (click)="themeService.toggleTheme()"
+      class="text-sm md:text-base px-3 py-2 md:px-4 md:py-3 rounded-xl bg-white/10 hover:bg-white/20 transition"
+    >
+      {{ themeService.darkMode() ? '☀️ Claro' : '🌙 Oscuro' }}
+    </button>
 
-    <div class="mt-auto pt-10">
-
+    <!-- SOLO visible en desktop -->
+    <div class="hidden md:block mt-auto pt-10">
       <div class="bg-white/10 rounded-2xl p-4">
         <p class="text-sm text-gray-300">
           Workspace
         </p>
-
         <h2 class="font-semibold mt-1">
           Productividad Pura
         </h2>
       </div>
-
     </div>
 
   </aside>
 
   <!-- MAIN -->
-
- <main class="flex-1 p-10 overflow-auto text-black dark:text-white transition-colors duration-300">
-
+  <main class="flex-1 p-4 md:p-10 overflow-auto text-black dark:text-white transition-colors duration-300">
     <router-outlet />
-
   </main>
 
 </div>
